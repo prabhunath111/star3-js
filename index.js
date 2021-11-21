@@ -1,21 +1,24 @@
-let r = 6;
+let r = 7;
 let pattern = "";
-
 for (let i = 1; i <= r; i++) {
-
-  for (let j = 0; j < i; j++) {
-    if(i === r) {
-      pattern += "*";
-    }
-    else {
-      if (j == 0 || j == i - 1) {
-        pattern += "*";
-      }
-      else {
+    for (let j = 1; j <= r - i; j++) {
         pattern += " ";
-      }
     }
-  }
-  pattern += "\n";
+    for (let k = 0; k < 2 * i - 1; k++) {
+        if (i === 1 || i === r) {
+            // console.log("i=",i);
+            pattern += "*";
+        }
+        else {
+            if (k === 0 || k === 2 * i - 2) {
+                // console.log("i=",i);
+                pattern += "*";
+            }
+            else {
+                pattern += " ";
+            }
+        }
+    }
+    pattern += "\n";
 }
 console.log(pattern);
